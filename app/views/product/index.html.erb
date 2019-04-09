@@ -1,2 +1,31 @@
-<h1>Product#index</h1>
-<p>Find me in app/views/product/index.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <h1 class="display-4">Products</h1>
+                <div>
+                    <button class="btn btn-primary">Nuevo Producto</button>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Categoria</th>
+                        <th></th>
+                    </tr>
+                    <% @products.each do |product| %>
+                        <tr>
+                            <td><%= product.name %></td>
+                            <td><%= product.price %></td>
+                            <td><%= categorias = product.categories.map{|p| p.name}.join(",") %></td>
+                            <td>
+                                <a href="#">Editar</a>
+                                <a href="#">Eliminar</a>    
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
