@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+
+      <div>
+        <h1 class="display-4">Nuevo Producto</h1>
+      </div>
+      <%= form_for @product do |f| %>
+
+      <div>
+        <%= f.text_field :name, placeholder: "Nombre Producto", class: "form-control-lg" %>
+      </div>
+      <div>
+        <%= f.text_field :price, placeholder: "Precio producto", class: "form-control-lg" %>
+      </div>
+      <br>
+
+      <ul>
+        <li>
+          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+          <div>
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+          <% end %>
+        </li>
+        <li>
+          <%= f.submit "Create Product", class: "btn btn-primary" %>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
